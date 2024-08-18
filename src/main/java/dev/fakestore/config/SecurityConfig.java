@@ -12,6 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Security Configuration
+ * This class configures the app security. Methods and endpoints access.
+ *
+ * @author Misael Landero
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -25,7 +31,6 @@ public class SecurityConfig {
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults())
                 .build();
     }
 

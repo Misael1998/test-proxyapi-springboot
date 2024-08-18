@@ -8,6 +8,12 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
+/**
+ * Cors Configuration
+ * This class configures the cross origin requests
+ *
+ * @author Misael Landero
+ */
 @Configuration
 public class CorsConfig {
     @Bean

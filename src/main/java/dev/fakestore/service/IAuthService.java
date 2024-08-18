@@ -1,12 +1,19 @@
 package dev.fakestore.service;
 
+import dev.fakestore.domain.dto.AuthToken;
+import dev.fakestore.domain.dto.User;
+
+/**
+ * <p>Interface containing the authentication methods</p>
+ *
+ * @author Misael Landero
+ */
 public interface IAuthService {
     /**
-     * Authentication method, takes username and returns jwt
+     * <p>Authentication method, takes username and returns jwt</p>
      *
      * @param user username
-     *
      * @return Object jwt
      */
-    public String auth(String user);
+    AuthToken auth(User user);
 }
