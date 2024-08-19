@@ -1,7 +1,7 @@
 package dev.fakestore.service.impl;
 
 import dev.fakestore.domain.dto.AuthToken;
-import dev.fakestore.domain.dto.User;
+import dev.fakestore.domain.dto.UserAuth;
 import dev.fakestore.proxy.client.IAuthClient;
 import dev.fakestore.service.IAuthService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -24,8 +24,8 @@ public class AuthService  implements IAuthService {
      * {@inheritDoc}
      */
     @Override
-    public AuthToken auth(User user) {
-        log.info("[AuthService][auth] User: " + user.getUsername());
-        return authClient.authUser(user);
+    public AuthToken auth(UserAuth userAuth) {
+        log.info("[AuthService][auth] User: " + userAuth.getUsername());
+        return authClient.authUser(userAuth);
     }
 }

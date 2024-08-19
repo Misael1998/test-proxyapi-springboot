@@ -28,6 +28,11 @@ public class SecurityConfig {
                         request -> request
                                 .requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/store/auth").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/store/user").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/store/user").permitAll()
+                                .requestMatchers(HttpMethod.PUT, "/store/user/*").permitAll()
+                                .requestMatchers(HttpMethod.PATCH, "/store/user/*").permitAll()
+                                .requestMatchers(HttpMethod.DELETE, "/store/user/*").permitAll()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())

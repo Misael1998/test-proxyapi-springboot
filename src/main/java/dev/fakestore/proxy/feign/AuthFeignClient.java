@@ -2,7 +2,7 @@ package dev.fakestore.proxy.feign;
 
 import dev.fakestore.domain.common.Constants;
 import dev.fakestore.domain.dto.AuthToken;
-import dev.fakestore.domain.dto.User;
+import dev.fakestore.domain.dto.UserAuth;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -21,13 +21,13 @@ public interface AuthFeignClient {
     /**
      * <p>Auth user method that calls the auth endpoint of FakeSotreApi</p>
      *
-     * @param user User object containing username and password
+     * @param userAuth User object containing username and password
      * @return AuthToken
      */
     @PostMapping(
             value = "/auth/login",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    AuthToken authUser(@RequestBody User user);
+    AuthToken authUser(@RequestBody UserAuth userAuth);
 
 }

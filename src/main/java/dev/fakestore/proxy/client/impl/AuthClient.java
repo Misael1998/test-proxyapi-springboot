@@ -1,7 +1,7 @@
 package dev.fakestore.proxy.client.impl;
 
 import dev.fakestore.domain.dto.AuthToken;
-import dev.fakestore.domain.dto.User;
+import dev.fakestore.domain.dto.UserAuth;
 import dev.fakestore.proxy.client.IAuthClient;
 import dev.fakestore.proxy.feign.AuthFeignClient;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +22,8 @@ public class AuthClient implements IAuthClient {
      * {@inheritDoc}
      */
     @Override
-    public AuthToken authUser(User user) {
-        log.info("[AuthClient][authUser] Usuario: " + user.getUsername());
-        return authFeignClient.authUser(user);
+    public AuthToken authUser(UserAuth userAuth) {
+        log.info("[AuthClient][authUser] Usuario: " + userAuth.getUsername());
+        return authFeignClient.authUser(userAuth);
     }
 }
