@@ -12,4 +12,5 @@ public interface IUserClient {
     UserResponse updateUser(Integer id, UserDetails user);
     UserResponse patchUser(Integer id, UserDetails user);
     UserResponse deleteUser(Integer id);
+    UserResponse getUserById(Integer id);
 }

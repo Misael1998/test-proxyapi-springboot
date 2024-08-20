@@ -5,6 +5,7 @@ import dev.fakestore.domain.dto.AuthToken;
 import dev.fakestore.domain.dto.UserAuth;
 import dev.fakestore.service.IAuthService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping(AuthController.API_RC_AUTH)
+@Tag(name = "Authentication Controller", description = "User & Password Auth")
 @RequiredArgsConstructor
 public class AuthController {
 

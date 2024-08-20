@@ -1,19 +1,21 @@
 package dev.fakestore.fakestore;
 
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
-import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@OpenAPIDefinition(
+		info = @Info(
+				title = "Fake Store API",
+				version = "1.0",
+				description = "REST Services for the Fake Store"),
+		servers = {@Server(url = "http://localhost:8080", description = "Local URL")})
 @EnableFeignClients(basePackages = {"dev.fakestore.proxy.feign"})
-@ImportAutoConfiguration({FeignAutoConfiguration.class})
-@SecurityScheme(type = SecuritySchemeType.HTTP, name = "javainuseapi", scheme = "basic", in = SecuritySchemeIn.HEADER)
 @ComponentScan(basePackages = {
 		"dev.fakestore.config",
 		"dev.fakestore.domain",

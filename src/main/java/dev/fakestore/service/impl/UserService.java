@@ -20,26 +20,40 @@ public class UserService implements IUserService {
 
     @Override
     public ArrayList<UserResponse> getAllUsers(Integer n, Sort sort) {
+        log.info("[UserService][getAllUsers]: " +
+                ((n == null) && (sort == null) ? "Filter -> ":"") +
+                (sort == null ? "":"Sort order: "+sort.getSort()) +
+                (n == null ? "":"Products to be retrieve: "+n));
         return userClient.getAllUsers(n, sort);
     }
 
     @Override
     public UserResponse createUser(UserDetails user) {
+        log.info("[UserService][createUser] User: " + user);
         return userClient.createUser(user);
     }
 
     @Override
     public UserResponse updateUser(Integer id, UserDetails user) {
+        log.info("[UserService][updateUser] UserID: " + id + " User: " + user);
         return userClient.updateUser(id, user);
     }
 
     @Override
     public UserResponse pathcUser(Integer id, UserDetails user) {
+        log.info("[UserService][patchUser] UserID: " + id + " User: " + user);
         return userClient.patchUser(id, user);
     }
 
     @Override
     public UserResponse deleteUser(Integer id) {
+        log.info("[UserService][deleteUser] "+"UserId: " + id);
         return userClient.deleteUser(id);
+    }
+
+    @Override
+    public UserResponse getUserById(Integer id) {
+        log.info("[UserService][getUserById] "+"UserId: " + id);
+        return userClient.getUserById(id);
     }
 }

@@ -113,4 +113,12 @@ public interface ProductsFeignClient {
     ProductResponse deleteProduct(
             @PathVariable(name = "id") Integer id
     );
+
+    @GetMapping(
+            value = "/products/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    ProductResponse getProductById(
+            @PathVariable(name = "id") Integer id
+    );
 }

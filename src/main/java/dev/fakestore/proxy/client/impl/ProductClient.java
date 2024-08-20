@@ -62,4 +62,10 @@ public class ProductClient implements IProductClient {
         log.info("[ProductClient][deleteProduct]"+"ProductID: " + id);
         return productsFeignClient.deleteProduct(id);
     }
+
+    @Override
+    public ProductResponse getProductById(Integer id) {
+        log.info("[ProductClient][getProductById]"+"ProductID: " + id);
+        return productsFeignClient.getProductById(id);
+    }
 }

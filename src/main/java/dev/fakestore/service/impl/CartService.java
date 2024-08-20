@@ -63,4 +63,10 @@ public class CartService implements ICartService {
         log.info("[CartService][deleteProduct] ProductID: " + id);
         return cartClient.deleteProduct(id);
     }
+
+    @Override
+    public CartResponse getCartById(Integer id) {
+        log.info("[CartService][getCartById] ProductID: " + id);
+        return cartClient.getCartById(id);
+    }
 }

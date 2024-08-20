@@ -75,4 +75,12 @@ public interface UserFeignClient {
     UserResponse deleteUser(
             @PathVariable(name = "id") Integer id
     );
+
+    @GetMapping(
+            value = "/users/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    UserResponse getUserById(
+            @PathVariable(name = "id") Integer id
+    );
 }

@@ -12,4 +12,5 @@ public interface IUserService {
     UserResponse updateUser(Integer id, UserDetails user);
     UserResponse pathcUser(Integer id, UserDetails user);
     UserResponse deleteUser(Integer id);
+    UserResponse getUserById(Integer id);
 }

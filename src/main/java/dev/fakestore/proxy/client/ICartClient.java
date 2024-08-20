@@ -14,4 +14,5 @@ public interface ICartClient {
     CartResponse updateProduct(Integer id, Cart cart);
     CartResponse patchProduct(Integer id, Cart cart);
     CartResponse deleteProduct(Integer id);
+    CartResponse getCartById(Integer id);
 }

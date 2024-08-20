@@ -50,4 +50,10 @@ public class UserClient implements IUserClient {
         log.info("[UserClient][deleteUser] "+"UserId: " + id);
         return userFeignClient.deleteUser(id);
     }
+
+    @Override
+    public UserResponse getUserById(Integer id) {
+        log.info("[UserClient][getUserById] "+"UserId: " + id);
+        return userFeignClient.getUserById(id);
+    }
 }

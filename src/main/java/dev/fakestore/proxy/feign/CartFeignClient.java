@@ -84,7 +84,7 @@ public interface CartFeignClient {
      * @return CartResponse
      */
     @PatchMapping(
-            value = "/products/{id}",
+            value = "/carts/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -99,10 +99,18 @@ public interface CartFeignClient {
      * @return CartResponse
      */
     @DeleteMapping(
-            value = "/products/{id}",
+            value = "/carts/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     CartResponse deleteProduct(
+            @PathVariable(name = "id") Integer id
+    );
+
+    @GetMapping(
+            value = "/cart/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    CartResponse getCartById(
             @PathVariable(name = "id") Integer id
     );
 }

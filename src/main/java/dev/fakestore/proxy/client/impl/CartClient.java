@@ -63,4 +63,10 @@ public class CartClient implements ICartClient {
         log.info("[CartClient][deleteProduct]"+"ProductID: " + id);
         return cartFeignClient.deleteProduct(id);
     }
+
+    @Override
+    public CartResponse getCartById(Integer id) {
+        log.info("[CartClient][getCartById]"+"ProductID: " + id);
+        return cartFeignClient.getCartById(id);
+    }
 }

@@ -14,4 +14,5 @@ public interface IProductService {
     ProductResponse updateProduct(Integer id, Product user);
     ProductResponse patchProduct(Integer id, Product user);
     ProductResponse deleteProduct(Integer id);
+    ProductResponse getProductById(Integer id);
 }
