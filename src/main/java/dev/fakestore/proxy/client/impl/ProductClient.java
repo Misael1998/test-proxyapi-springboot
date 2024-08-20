@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -19,7 +20,7 @@ public class ProductClient implements IProductClient {
     private final ProductsFeignClient productsFeignClient;
 
     @Override
-    public ArrayList<ProductResponse> getAllProducts(Integer n, Sort sort) {
+    public List<ProductResponse> getAllProducts(Integer n, Sort sort) {
         log.info("[ProductClient][getAllProducts]: " +
                 ((n == null) && (sort == null) ? "":"Filter ->") +
                 (sort == null ? "":" Sort order: "+sort.getSort()) +
@@ -28,13 +29,13 @@ public class ProductClient implements IProductClient {
     }
 
     @Override
-    public ArrayList<String> getAllCategories() {
+    public List<String> getAllCategories() {
         log.info("[ProductClient][getAllCategories]");
         return productsFeignClient.getAllCategories();
     }
 
     @Override
-    public ArrayList<ProductResponse> getAllProductsInCategory(String category) {
+    public List<ProductResponse> getAllProductsInCategory(String category) {
         log.info("[ProductClient][getAllProductsInCategory] Category: " + category);
         return productsFeignClient.getAllProductsInCategory(category);
     }

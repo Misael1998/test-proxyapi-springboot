@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * FeingClient interface for the product methods
@@ -28,7 +28,7 @@ public interface ProductsFeignClient {
             value = "/products",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<ProductResponse> getAllProducts(
+    List<ProductResponse> getAllProducts(
             @RequestParam(name = "limit", required = false) Integer n,
             @RequestParam(name = "sort", required = false) String sort
     );
@@ -42,7 +42,7 @@ public interface ProductsFeignClient {
             value = "/products/categories",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<String> getAllCategories();
+    List<String> getAllCategories();
 
     /**
      * <p>Get all products in category method</p>
@@ -53,7 +53,7 @@ public interface ProductsFeignClient {
             value = "/products/category/{category}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<ProductResponse> getAllProductsInCategory(
+    List<ProductResponse> getAllProductsInCategory(
             @PathVariable(name = "category") String category
     );
 

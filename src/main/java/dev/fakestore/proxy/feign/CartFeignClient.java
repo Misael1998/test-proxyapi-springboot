@@ -8,8 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * FeingClient interface for the cart methods
@@ -28,7 +28,7 @@ public interface CartFeignClient {
             value = "/carts",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<CartResponse> getAllCarts(
+    List<CartResponse> getAllCarts(
             @RequestParam(name = "limit", required = false) Integer n,
             @RequestParam(name = "sort", required = false) String sort,
             @RequestParam(name = "startdate", required = false) Date startdate,
@@ -45,7 +45,7 @@ public interface CartFeignClient {
             value = "/carts/user/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<CartResponse> getAllUserCarts(
+    List<CartResponse> getAllUserCarts(
             @PathVariable(name = "id") Integer integer
     );
 
@@ -107,7 +107,7 @@ public interface CartFeignClient {
     );
 
     @GetMapping(
-            value = "/cart/{id}",
+            value = "/carts/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     CartResponse getCartById(

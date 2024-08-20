@@ -1,6 +1,5 @@
-package dev.fakestore.domain.response;
+package dev.fakestore.domain.request;
 
-import dev.fakestore.domain.dto.Cart;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartResponse extends Cart {
-    private Integer id;
+public class PaymentRequest {
+    private Integer cartId;
+    private String paymentType;
 }

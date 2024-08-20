@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -19,7 +20,7 @@ public class UserClient implements IUserClient {
     private final UserFeignClient userFeignClient;
 
     @Override
-    public ArrayList<UserResponse> getAllUsers(Integer n, Sort sort) {
+    public List<UserResponse> getAllUsers(Integer n, Sort sort) {
         log.info("[UserClient][getAllUsers]: " +
                 ((n == null) && (sort == null) ? "Filter -> ":"") +
                 (sort == null ? "":"Sort order: "+sort.getSort()) +

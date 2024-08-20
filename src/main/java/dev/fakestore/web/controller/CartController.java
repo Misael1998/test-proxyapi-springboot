@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -30,7 +31,7 @@ public class CartController {
     @GetMapping
     @Operation(summary = "GET all carts, limit carts, sorted carts and date interval")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<CartResponse>> getCarts(
+    ResponseEntity<List<CartResponse>> getCarts(
             @Parameter(name = "limit", example = "1")
             @RequestParam(name = "limit", required = false) Integer n,
             @Parameter(name = "sort")
@@ -57,7 +58,7 @@ public class CartController {
     @GetMapping("/user/{id}")
     @Operation(summary = "GET a specific cart for a user")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<CartResponse>> getUserCarts(
+    ResponseEntity<List<CartResponse>> getUserCarts(
             @PathVariable(name = "id") Integer id
     ){
         log.info("API: '{}', Method 'getUserCarts'", API_RC_CART);

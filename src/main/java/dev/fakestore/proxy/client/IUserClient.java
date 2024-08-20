@@ -4,10 +4,10 @@ import dev.fakestore.domain.dto.UserDetails;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.UserResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IUserClient {
-    ArrayList<UserResponse> getAllUsers(Integer n, Sort sort);
+    List<UserResponse> getAllUsers(Integer n, Sort sort);
     UserResponse createUser(UserDetails user);
     UserResponse updateUser(Integer id, UserDetails user);
     UserResponse patchUser(Integer id, UserDetails user);

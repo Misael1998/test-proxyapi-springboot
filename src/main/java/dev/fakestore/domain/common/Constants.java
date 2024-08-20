@@ -17,4 +17,5 @@ public class Constants {
     public static final String USER = "/user";
     public static final String CART = "/cart";
     public static final String PRODUCT = "/product";
+    public static final String PAYMENT = "/payment";
 }

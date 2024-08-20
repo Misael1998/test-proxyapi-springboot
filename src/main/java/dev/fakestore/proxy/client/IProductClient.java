@@ -4,12 +4,12 @@ import dev.fakestore.domain.dto.Product;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.ProductResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IProductClient {
-    ArrayList<ProductResponse> getAllProducts(Integer n, Sort sort);
-    ArrayList<String> getAllCategories();
-    ArrayList<ProductResponse> getAllProductsInCategory(String category);
+    List<ProductResponse> getAllProducts(Integer n, Sort sort);
+    List<String> getAllCategories();
+    List<ProductResponse> getAllProductsInCategory(String category);
     ProductResponse createProduct(Product product);
     ProductResponse updateProduct(Integer id, Product user);
     ProductResponse patchProduct(Integer id, Product user);

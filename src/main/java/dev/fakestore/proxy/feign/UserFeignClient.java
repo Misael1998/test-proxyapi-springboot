@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * FeingClient interface for the user methods
@@ -29,7 +29,7 @@ public interface UserFeignClient {
             value = "/users",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<UserResponse> getAllUsers(
+    List<UserResponse> getAllUsers(
             @RequestParam(name = "limit", required = false) Integer n,
             @RequestParam(name = "sort", required = false) String sort
     );

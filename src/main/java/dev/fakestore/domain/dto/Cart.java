@@ -5,15 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cart {
-    private Integer usreId;
+    private Integer userId;
     private Date date;
-    private ArrayList<CartProduct> products;
+    private List<CartProduct> products;
 }

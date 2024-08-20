@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -30,7 +31,7 @@ public class UserController {
     @GetMapping
     @Operation(summary = "GET all users, limit users and sorted users")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<UserResponse>> getUsers(
+    ResponseEntity<List<UserResponse>> getUsers(
             @Parameter(name = "limit", example = "1")
             @RequestParam(name = "limit", required = false) Integer n,
             @Parameter(name = "sort")

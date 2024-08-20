@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -20,7 +21,7 @@ public class CartClient implements ICartClient {
     private final CartFeignClient cartFeignClient;
 
     @Override
-    public ArrayList<CartResponse> getAllCarts(Integer n, Sort sort, Date startdate, Date enddate) {
+    public List<CartResponse> getAllCarts(Integer n, Sort sort, Date startdate, Date enddate) {
         log.info("[CartClient][getAllCarts]: " +
                 ((n == null) && (sort == null) ? "":"Filter -> ") +
                 (sort == null ? "":" Sort order: "+sort.getSort()) +
@@ -35,7 +36,7 @@ public class CartClient implements ICartClient {
     }
 
     @Override
-    public ArrayList<CartResponse> getAllUserCarts(Integer id) {
+    public List<CartResponse> getAllUserCarts(Integer id) {
         log.info("[CartClient][getAllUserCarts] UserId: " + id);
         return cartFeignClient.getAllUserCarts(id);
     }

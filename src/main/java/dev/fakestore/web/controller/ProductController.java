@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -30,7 +31,7 @@ public class ProductController {
     @GetMapping
     @Operation(summary = "GET all users, limit users and sorted users")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<ProductResponse>> getProducts(
+    ResponseEntity<List<ProductResponse>> getProducts(
             @Parameter(name = "limit", example = "1")
             @RequestParam(name = "limit", required = false) Integer n,
             @Parameter(name = "sort")
@@ -53,7 +54,7 @@ public class ProductController {
     @GetMapping("/categories")
     @Operation(summary = "GET all categories")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<String>> getCategories(){
+    ResponseEntity<List<String>> getCategories(){
         log.info("API: '{}', Method 'getCategories'", API_RC_PRODUCT);
         return ResponseEntity.ok(productService.getAllCategories());
     }
@@ -61,7 +62,7 @@ public class ProductController {
     @GetMapping("/category/{category}")
     @Operation(summary = "GET all products for a category")
     @SecurityRequirement(name = "Authorization Bearer")
-    ResponseEntity<ArrayList<ProductResponse>> getProductsInCategory(
+    ResponseEntity<List<ProductResponse>> getProductsInCategory(
             @PathVariable(name = "category") String category
     ){
         log.info("API: '{}', Method 'getProductsInCategory'", API_RC_PRODUCT);

@@ -4,12 +4,12 @@ import dev.fakestore.domain.dto.Cart;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.CartResponse;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public interface ICartService {
-    ArrayList<CartResponse> getAllCarts(Integer n, Sort sort, Date startdate, Date enddate);
-    ArrayList<CartResponse> getAllUserCarts(Integer integer);
+    List<CartResponse> getAllCarts(Integer n, Sort sort, Date startdate, Date enddate);
+    List<CartResponse> getAllUserCarts(Integer integer);
     CartResponse createProduct(Cart cart);
     CartResponse updateProduct(Integer id, Cart cart);
     CartResponse patchProduct(Integer id, Cart cart);

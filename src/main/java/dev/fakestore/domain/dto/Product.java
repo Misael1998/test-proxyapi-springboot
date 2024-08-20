@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Product {
     private String title;
-    private Float price;
+    private float price;
     private String category;
     private String description;
     private String image;
