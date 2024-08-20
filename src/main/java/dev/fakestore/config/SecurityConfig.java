@@ -35,6 +35,7 @@ public class SecurityConfig {
                         request -> request
                                 .requestMatchers( "/swagger-ui/**").permitAll()
                                 .requestMatchers( "/store/**").permitAll()
+                                .requestMatchers( "/javadoc/**").permitAll()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
