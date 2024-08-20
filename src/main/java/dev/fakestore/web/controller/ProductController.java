@@ -4,7 +4,6 @@ import dev.fakestore.domain.common.Constants;
 import dev.fakestore.domain.dto.Product;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.ProductResponse;
-import dev.fakestore.domain.response.UserResponse;
 import dev.fakestore.service.IProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
