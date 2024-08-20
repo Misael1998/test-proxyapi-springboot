@@ -1,5 +1,6 @@
 package dev.fakestore.service.impl;
 
+import dev.fakestore.domain.exception.PaymentNotFoundException;
 import dev.fakestore.domain.request.PaymentRequest;
 import dev.fakestore.domain.response.CartResponse;
 import dev.fakestore.domain.response.ProductResponse;
@@ -28,7 +29,7 @@ public class PaymentService implements IPaymentService {
     private final OrderDetailsRepository orderDetailsRepository;
 
     @Override
-    public Object createPayment(PaymentRequest paymentRequest) {
+    public OrderDetails createPayment(PaymentRequest paymentRequest) {
         CartResponse cart = cartService.getCartById(paymentRequest.getCartId());
         UserResponse user = userService.getUserById(cart.getUserId());
         List<Products> items = cart.getProducts().stream().map(cartProduct -> {
@@ -74,12 +75,14 @@ public class PaymentService implements IPaymentService {
     }
 
     @Override
-    public Object getPaymentById(Integer paymentId) {
-        return orderDetailsRepository.findAllByPaymentId(paymentId);
+    public OrderDetails getPaymentById(Integer paymentId) {
+        return orderDetailsRepository
+                .findAllByPaymentId(paymentId)
+                .orElseThrow(PaymentNotFoundException::new);
     }
 
     @Override
-    public Object getAllPayments() {
-        return orderRepository.findAll();
+    public List<Payments> getAllPayments() {
+        return paymentRepository.findAll();
     }
 }

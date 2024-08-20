@@ -1,9 +1,13 @@
 package dev.fakestore.service;
 
 import dev.fakestore.domain.request.PaymentRequest;
+import dev.fakestore.persistance.entity.OrderDetails;
+import dev.fakestore.persistance.entity.Payments;
+
+import java.util.List;
 
 public interface IPaymentService {
-    Object createPayment(PaymentRequest cartId);
-    Object getPaymentById(Integer paymentId);
-    Object getAllPayments();
+    OrderDetails createPayment(PaymentRequest cartId);
+    OrderDetails getPaymentById(Integer paymentId);
+    List<Payments> getAllPayments();
 }
