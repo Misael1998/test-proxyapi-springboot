@@ -75,6 +75,11 @@ public class PaymentService implements IPaymentService {
 
     @Override
     public Object getPaymentById(Integer paymentId) {
-        return orderDetailsRepository.getOrderDetailsByCartId(paymentId);
+        return orderDetailsRepository.findAllByPaymentId(paymentId);
+    }
+
+    @Override
+    public Object getAllPayments() {
+        return orderRepository.findAll();
     }
 }
