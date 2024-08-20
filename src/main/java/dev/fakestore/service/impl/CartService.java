@@ -3,7 +3,6 @@ package dev.fakestore.service.impl;
 import dev.fakestore.domain.dto.Cart;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.CartResponse;
-import dev.fakestore.domain.response.ProductResponse;
 import dev.fakestore.proxy.client.ICartClient;
 import dev.fakestore.service.ICartService;
 import lombok.RequiredArgsConstructor;
