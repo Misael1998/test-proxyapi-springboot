@@ -15,4 +15,6 @@ public class Constants {
     public static final String BASE_API_URL = "/store";
     public static final String AUTH = "/auth";
     public static final String USER = "/user";
+    public static final String CART = "/cart";
+    public static final String PRODUCT = "/product";
 }
