@@ -2,7 +2,6 @@ package dev.fakestore.proxy.feign;
 
 import dev.fakestore.domain.common.Constants;
 import dev.fakestore.domain.dto.Cart;
-import dev.fakestore.domain.dto.Product;
 import dev.fakestore.domain.response.CartResponse;
 import dev.fakestore.domain.response.ProductResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -30,7 +29,7 @@ public interface CartFeignClient {
             value = "/carts",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<CartResponse> getAllUsers(
+    ArrayList<CartResponse> getAllCarts(
             @RequestParam(name = "limit", required = false) Integer n,
             @RequestParam(name = "sort", required = false) String sort,
             @RequestParam(name = "startdate", required = false) Date startdate,
@@ -77,7 +76,7 @@ public interface CartFeignClient {
     )
     CartResponse updateProduct(
             @PathVariable(name = "id") String id,
-            @RequestBody CartResponse cart
+            @RequestBody Cart cart
     );
 
     /**
@@ -90,9 +89,9 @@ public interface CartFeignClient {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    CartResponse pathProduct(
+    CartResponse patchProduct(
             @PathVariable(name = "id") String id,
-            @RequestBody Product user
+            @RequestBody Cart cart
     );
 
     /**

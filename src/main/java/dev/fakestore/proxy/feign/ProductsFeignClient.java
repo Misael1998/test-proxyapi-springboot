@@ -28,7 +28,7 @@ public interface ProductsFeignClient {
             value = "/products",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<ProductResponse> getAllUsers(
+    ArrayList<ProductResponse> getAllProducts(
             @RequestParam(name = "limit", required = false) Integer n,
             @RequestParam(name = "sort", required = false) String sort
     );
@@ -53,7 +53,7 @@ public interface ProductsFeignClient {
             value = "/products/category/{category}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ArrayList<String> getAllProductsInCategory(
+    ArrayList<ProductResponse> getAllProductsInCategory(
             @PathVariable(name = "category") String category
     );
 
@@ -68,7 +68,7 @@ public interface ProductsFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ProductResponse createProduct(
-            @RequestBody Product user
+            @RequestBody Product product
     );
 
     /**
@@ -96,7 +96,7 @@ public interface ProductsFeignClient {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ProductResponse pathProduct(
+    ProductResponse patchProduct(
             @PathVariable(name = "id") String id,
             @RequestBody Product user
     );
