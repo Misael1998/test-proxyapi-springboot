@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This controller manages all the cart methods
+ *
+ * @author Misael Landero
+ */
 @Slf4j
 @RestController
 @RequestMapping(CartController.API_RC_CART)
@@ -27,6 +32,23 @@ public class CartController {
 
     private final ICartService cartService;
 
+    /**
+     * <p>
+     *     Get carts will retrieve all the carts if no filters are given. The available filters are:
+     *     <ul>
+     *         <li>N - number of elements to be returned</li>
+     *         <li>Sort - asc or desc sor</li>
+     *         <li>Dates to search in</li>
+     *     </ul>
+     *
+     *
+     * </p>
+     * @param n N
+     * @param sort Sort
+     * @param startdate Start Date
+     * @param enddate End Date
+     * @return List of CartResponse
+     */
     @GetMapping
     @Operation(summary = "GET all carts, limit carts, sorted carts and date interval")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -44,6 +66,13 @@ public class CartController {
         return ResponseEntity.ok(cartService.getAllCarts(n,sort,startdate,enddate));
     }
 
+    /**
+     * <p>
+     *     This method returns a cart given its id
+     * </p>
+     * @param id ID
+     * @return Cart Response
+     */
     @GetMapping("/{id}")
     @Operation(summary = "GET a specific cart by its id")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -54,6 +83,11 @@ public class CartController {
         return ResponseEntity.ok(cartService.getCartById(id));
     }
 
+    /**
+     * This method returns all carts associated with a user id
+     * @param id ID
+     * @return List of Cart Response
+     */
     @GetMapping("/user/{id}")
     @Operation(summary = "GET a specific cart for a user")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -64,6 +98,13 @@ public class CartController {
         return ResponseEntity.ok(cartService.getAllUserCarts(id));
     }
 
+    /**
+     * <p>
+     *     This method creates a new cart
+     * </p>
+     * @param product Product
+     * @return Cart Response
+     */
     @PostMapping
     @Operation(summary = "Create a cart")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -74,6 +115,14 @@ public class CartController {
         return ResponseEntity.ok(cartService.createProduct(product));
     }
 
+    /**
+     * <p>
+     *     This method updates a cart
+     * </p>
+     * @param id ID
+     * @param cart Cart
+     * @return Cart Response
+     */
     @PutMapping("/{id}")
     @Operation(summary = "Update a cart")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -85,6 +134,14 @@ public class CartController {
         return ResponseEntity.ok(cartService.updateProduct(id, cart));
     }
 
+    /**
+     * <p>
+     *     This method patches a cart
+     * </p>
+     * @param id ID
+     * @param cart Cart
+     * @return Cart Response
+     */
     @PatchMapping("/{id}")
     @Operation(summary = "Patch a cart")
     @SecurityRequirement(name = "Authorization Bearer")
@@ -96,6 +153,13 @@ public class CartController {
         return ResponseEntity.ok(cartService.patchProduct(id, cart));
     }
 
+    /**
+     * <p>
+     *     This method deletes a cart
+     * </p>
+     * @param id ID
+     * @return Cart Response
+     */
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a cart")
     @SecurityRequirement(name = "Authorization Bearer")

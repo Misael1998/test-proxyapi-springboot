@@ -6,11 +6,61 @@ import dev.fakestore.domain.response.UserResponse;
 
 import java.util.List;
 
+/**
+ * Interface containing the payment clients
+ *
+ * @author Misael Landero
+ */
 public interface IUserClient {
+    /**
+     * <p>
+     *     This method gets all users, filtered and unfiltered
+     * </p>
+     * @param n N
+     * @param sort Sort
+     * @return List of User Response
+     */
     List<UserResponse> getAllUsers(Integer n, Sort sort);
+    /**
+     * <p>
+     *     This method creates a new user
+     * </p>
+     * @param user User
+     * @return User Response
+     */
     UserResponse createUser(UserDetails user);
+    /**
+     * <p>
+     *     This method updates a user
+     * </p>
+     * @param id ID
+     * @param user User
+     * @return User Respponse
+     */
     UserResponse updateUser(Integer id, UserDetails user);
+    /**
+     * <p>
+     *     This method patches a user
+     * </p>
+     * @param id ID
+     * @param user User
+     * @return User Respponse
+     */
     UserResponse patchUser(Integer id, UserDetails user);
+    /**
+     * <p>
+     *     This method deletes a user
+     * </p>
+     * @param id ID
+     * @return User Response
+     */
     UserResponse deleteUser(Integer id);
+    /**
+     * <p>
+     *     This method gets a user by its id
+     * </p>
+     * @param id  ID
+     * @return User Response
+     */
     UserResponse getUserById(Integer id);
 }

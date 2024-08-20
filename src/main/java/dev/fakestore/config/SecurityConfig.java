@@ -20,6 +20,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    /**
+     * <p>
+     *     This method configures filter chain to all the endpoints
+     * </p>
+     * @param http HttpSecurity
+     * @return SecurityFilterChain
+     * @throws Exception ex
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http

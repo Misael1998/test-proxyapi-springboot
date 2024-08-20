@@ -14,6 +14,12 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class SwaggerConf {
+    /**
+     * <p>
+     *     This method configures OpenAPI documentation
+     * </p>
+     * @return OpenAPI
+     */
     @Bean
     public OpenAPI customizeAPI(){
         final String securitySchemeName = "Authorization Bearer";

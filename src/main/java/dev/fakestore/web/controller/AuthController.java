@@ -11,6 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * This controller manages the authentication methods
+ *
+ * @author Misael Landero
+ */
 @Slf4j
 @RestController
 @RequestMapping(AuthController.API_RC_AUTH)

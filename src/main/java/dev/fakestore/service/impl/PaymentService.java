@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Payment Service Implementation
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -28,6 +31,9 @@ public class PaymentService implements IPaymentService {
     private final ProductRepository productRepository;
     private final OrderDetailsRepository orderDetailsRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public OrderDetails createPayment(PaymentRequest paymentRequest) {
         CartResponse cart = cartService.getCartById(paymentRequest.getCartId());
@@ -74,6 +80,9 @@ public class PaymentService implements IPaymentService {
         return orderDetails;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public OrderDetails getPaymentById(Integer paymentId) {
         return orderDetailsRepository
@@ -81,6 +90,9 @@ public class PaymentService implements IPaymentService {
                 .orElseThrow(PaymentNotFoundException::new);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Payments> getAllPayments() {
         return paymentRepository.findAll();

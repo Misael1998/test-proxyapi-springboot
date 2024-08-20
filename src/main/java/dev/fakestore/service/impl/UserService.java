@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Payment Service Implementation
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,6 +21,9 @@ public class UserService implements IUserService {
 
     private final IUserClient userClient;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<UserResponse> getAllUsers(Integer n, Sort sort) {
         log.info("[UserService][getAllUsers]: " +
@@ -27,30 +33,45 @@ public class UserService implements IUserService {
         return userClient.getAllUsers(n, sort);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse createUser(UserDetails user) {
         log.info("[UserService][createUser] User: " + user);
         return userClient.createUser(user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse updateUser(Integer id, UserDetails user) {
         log.info("[UserService][updateUser] UserID: " + id + " User: " + user);
         return userClient.updateUser(id, user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse pathcUser(Integer id, UserDetails user) {
         log.info("[UserService][patchUser] UserID: " + id + " User: " + user);
         return userClient.patchUser(id, user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse deleteUser(Integer id) {
         log.info("[UserService][deleteUser] "+"UserId: " + id);
         return userClient.deleteUser(id);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse getUserById(Integer id) {
         log.info("[UserService][getUserById] "+"UserId: " + id);

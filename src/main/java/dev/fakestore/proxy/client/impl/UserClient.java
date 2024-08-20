@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Payment Client Implementation
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,6 +21,9 @@ public class UserClient implements IUserClient {
 
     private final UserFeignClient userFeignClient;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<UserResponse> getAllUsers(Integer n, Sort sort) {
         log.info("[UserClient][getAllUsers]: " +
@@ -27,30 +33,45 @@ public class UserClient implements IUserClient {
         return userFeignClient.getAllUsers(n, sort == null ? null : sort.getSort());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse createUser(UserDetails user) {
         log.info("[UserClient][createUser] User: " + user);
         return userFeignClient.createUser(user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse updateUser(Integer id, UserDetails user) {
         log.info("[UserClient][updateUser] UserID: " + id + " User: " + user);
         return userFeignClient.updateUser(id, user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse patchUser(Integer id, UserDetails user) {
         log.info("[UserClient][patchUser] UserID: " + id + " User: " + user);
         return userFeignClient.patchUser(id, user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse deleteUser(Integer id) {
         log.info("[UserClient][deleteUser] "+"UserId: " + id);
         return userFeignClient.deleteUser(id);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserResponse getUserById(Integer id) {
         log.info("[UserClient][getUserById] "+"UserId: " + id);

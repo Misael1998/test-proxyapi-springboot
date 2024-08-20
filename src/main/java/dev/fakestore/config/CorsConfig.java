@@ -16,6 +16,12 @@ import java.util.List;
  */
 @Configuration
 public class CorsConfig {
+    /**
+     * <p>
+     *     This method configures cross origin for CRUD methods, * headers and * origins
+     * </p>
+     * @return
+     */
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();

@@ -16,12 +16,26 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Slf4j
 @ControllerAdvice
 public class ExceptrionController {
+    /**
+     * <p>
+     *     This method catches all the PaymentNotFoundException an manages them returning a 404 status
+     * </p>
+     * @param ex PaymentNotFoundException
+     * @return Not Found 404
+     */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(PaymentNotFoundException.class)
     public ResponseEntity<String> handleException(PaymentNotFoundException ex) {
         return ResponseEntity.notFound().build();
     }
 
+    /**
+     * <p>
+     *     This method catches all the generic Exceptions an returns a 500 status
+     * </p>
+     * @param ex Exception
+     * @return Internal Server Error 500
+     */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception ex) {
