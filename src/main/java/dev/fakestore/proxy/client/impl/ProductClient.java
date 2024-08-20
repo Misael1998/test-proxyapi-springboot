@@ -21,45 +21,45 @@ public class ProductClient implements IProductClient {
     @Override
     public ArrayList<ProductResponse> getAllProducts(Integer n, Sort sort) {
         log.info("[ProductClient][getAllProducts]: " +
-                ((n == null) && (sort == null) ? "Filter -> ":"") +
-                (sort == null ? "":"Sort order: "+sort.getSort()) +
-                (n == null ? "":"Products to be retrieve: "+n));
+                ((n == null) && (sort == null) ? "":"Filter ->") +
+                (sort == null ? "":" Sort order: "+sort.getSort()) +
+                (n == null ? "":" Products to be retrieve: "+n));
         return productsFeignClient.getAllProducts(n, sort == null ? null : sort.getSort());
     }
 
     @Override
     public ArrayList<String> getAllCategories() {
-        log.info("[AuthClient][getAllCategories]");
+        log.info("[ProductClient][getAllCategories]");
         return productsFeignClient.getAllCategories();
     }
 
     @Override
     public ArrayList<ProductResponse> getAllProductsInCategory(String category) {
-        log.info("[AuthClient][getAllProductsInCategory] Category: " + category);
+        log.info("[ProductClient][getAllProductsInCategory] Category: " + category);
         return productsFeignClient.getAllProductsInCategory(category);
     }
 
     @Override
     public ProductResponse createProduct(Product product) {
-        log.info("[AuthClient][createProduct] Product: " + product);
+        log.info("[ProductClient][createProduct] Product: " + product);
         return productsFeignClient.createProduct(product);
     }
 
     @Override
-    public ProductResponse updateProduct(String id, Product product) {
-        log.info("[AuthClient][updateProduct] ProductID: " + id + " Product: " + product);
+    public ProductResponse updateProduct(Integer id, Product product) {
+        log.info("[ProductClient][updateProduct] ProductID: " + id + " Product: " + product);
         return productsFeignClient.updateProduct(id, product);
     }
 
     @Override
-    public ProductResponse patchProduct(String id, Product product) {
-        log.info("[AuthClient][patchProduct] ProductID: " + id + " Product: " + product);
+    public ProductResponse patchProduct(Integer id, Product product) {
+        log.info("[ProductClient][patchProduct] ProductID: " + id + " Product: " + product);
         return productsFeignClient.patchProduct(id, product);
     }
 
     @Override
-    public ProductResponse deleteProduct(String id) {
-        log.info("[AuthClient][deleteProduct]"+"ProductID: " + id);
+    public ProductResponse deleteProduct(Integer id) {
+        log.info("[ProductClient][deleteProduct]"+"ProductID: " + id);
         return productsFeignClient.deleteProduct(id);
     }
 }

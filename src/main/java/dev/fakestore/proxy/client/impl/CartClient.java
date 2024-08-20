@@ -23,11 +23,11 @@ public class CartClient implements ICartClient {
     @Override
     public ArrayList<CartResponse> getAllCarts(Integer n, Sort sort, Date startdate, Date enddate) {
         log.info("[CartClient][getAllCarts]: " +
-                ((n == null) && (sort == null) ? "Filter -> ":"") +
-                (sort == null ? "":"Sort order: "+sort.getSort()) +
-                (n == null ? "":"Products to be retrieve: "+n) +
-                (startdate == null ? "":"Start Date: "+startdate) +
-                (enddate == null ? "":"End Date: "+enddate));
+                ((n == null) && (sort == null) ? "":"Filter -> ") +
+                (sort == null ? "":" Sort order: "+sort.getSort()) +
+                (n == null ? "":" Products to be retrieve: "+n) +
+                (startdate == null ? "":" Start Date: "+startdate) +
+                (enddate == null ? "":" End Date: "+enddate));
         return cartFeignClient.getAllCarts(
                 n,
                 sort == null ? null : sort.getSort(),
@@ -42,25 +42,25 @@ public class CartClient implements ICartClient {
     }
 
     @Override
-    public ProductResponse createProduct(Cart cart) {
+    public CartResponse createProduct(Cart cart) {
         log.info("[CartClient][createProduct] Product: " + cart);
         return cartFeignClient.createProduct(cart);
     }
 
     @Override
-    public CartResponse updateProduct(String id, Cart cart) {
+    public CartResponse updateProduct(Integer id, Cart cart) {
         log.info("[CartClient][createProduct] ProductId: "+ id + " Product: " + cart);
         return cartFeignClient.updateProduct(id, cart);
     }
 
     @Override
-    public CartResponse patchProduct(String id, Cart cart) {
+    public CartResponse patchProduct(Integer id, Cart cart) {
         log.info("[CartClient][patchProduct] ProductId: "+ id + " Product: " + cart);
         return cartFeignClient.patchProduct(id, cart);
     }
 
     @Override
-    public CartResponse deleteProduct(String id) {
+    public CartResponse deleteProduct(Integer id) {
         log.info("[CartClient][deleteProduct]"+"ProductID: " + id);
         return cartFeignClient.deleteProduct(id);
     }

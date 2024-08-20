@@ -3,7 +3,6 @@ package dev.fakestore.proxy.feign;
 import dev.fakestore.domain.common.Constants;
 import dev.fakestore.domain.dto.Cart;
 import dev.fakestore.domain.response.CartResponse;
-import dev.fakestore.domain.response.ProductResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -60,7 +59,7 @@ public interface CartFeignClient {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ProductResponse createProduct(
+    CartResponse createProduct(
             @RequestBody Cart cart
     );
 
@@ -75,7 +74,7 @@ public interface CartFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     CartResponse updateProduct(
-            @PathVariable(name = "id") String id,
+            @PathVariable(name = "id") Integer id,
             @RequestBody Cart cart
     );
 
@@ -90,7 +89,7 @@ public interface CartFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     CartResponse patchProduct(
-            @PathVariable(name = "id") String id,
+            @PathVariable(name = "id") Integer id,
             @RequestBody Cart cart
     );
 
@@ -104,6 +103,6 @@ public interface CartFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     CartResponse deleteProduct(
-            @PathVariable(name = "id") String id
+            @PathVariable(name = "id") Integer id
     );
 }

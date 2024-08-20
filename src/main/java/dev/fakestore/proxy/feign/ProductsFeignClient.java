@@ -82,7 +82,7 @@ public interface ProductsFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ProductResponse updateProduct(
-            @PathVariable(name = "id") String id,
+            @PathVariable(name = "id") Integer id,
             @RequestBody Product user
     );
 
@@ -97,7 +97,7 @@ public interface ProductsFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ProductResponse patchProduct(
-            @PathVariable(name = "id") String id,
+            @PathVariable(name = "id") Integer id,
             @RequestBody Product user
     );
 
@@ -111,6 +111,6 @@ public interface ProductsFeignClient {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ProductResponse deleteProduct(
-            @PathVariable(name = "id") String id
+            @PathVariable(name = "id") Integer id
     );
 }

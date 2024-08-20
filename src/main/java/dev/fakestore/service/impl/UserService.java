@@ -3,7 +3,7 @@ package dev.fakestore.service.impl;
 import dev.fakestore.domain.dto.UserDetails;
 import dev.fakestore.domain.enumeration.Sort;
 import dev.fakestore.domain.response.UserResponse;
-import dev.fakestore.proxy.feign.UserFeignClient;
+import dev.fakestore.proxy.client.IUserClient;
 import dev.fakestore.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,30 +16,30 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class UserService implements IUserService {
 
-    private final UserFeignClient userFeignClient;
+    private final IUserClient userClient;
 
     @Override
     public ArrayList<UserResponse> getAllUsers(Integer n, Sort sort) {
-        return userFeignClient.getAllUsers(n, sort.getSort());
+        return userClient.getAllUsers(n, sort);
     }
 
     @Override
     public UserResponse createUser(UserDetails user) {
-        return userFeignClient.createUser(user);
+        return userClient.createUser(user);
     }
 
     @Override
     public UserResponse updateUser(Integer id, UserDetails user) {
-        return userFeignClient.updateUser(id, user);
+        return userClient.updateUser(id, user);
     }
 
     @Override
     public UserResponse pathcUser(Integer id, UserDetails user) {
-        return userFeignClient.patchUser(id, user);
+        return userClient.patchUser(id, user);
     }
 
     @Override
     public UserResponse deleteUser(Integer id) {
-        return userFeignClient.deleteUser(id);
+        return userClient.deleteUser(id);
     }
 }

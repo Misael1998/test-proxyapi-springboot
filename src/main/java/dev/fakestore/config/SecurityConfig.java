@@ -2,7 +2,6 @@ package dev.fakestore.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,13 +25,8 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(
                         request -> request
-                                .requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/store/auth").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/store/user").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/store/user").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/store/user/*").permitAll()
-                                .requestMatchers(HttpMethod.PATCH, "/store/user/*").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/store/user/*").permitAll()
+                                .requestMatchers( "/swagger-ui/**").permitAll()
+                                .requestMatchers( "/store/**").permitAll()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())

@@ -11,7 +11,7 @@ public interface IProductClient {
     ArrayList<String> getAllCategories();
     ArrayList<ProductResponse> getAllProductsInCategory(String category);
     ProductResponse createProduct(Product product);
-    ProductResponse updateProduct(String id, Product user);
-    ProductResponse patchProduct(String id, Product user);
-    ProductResponse deleteProduct(String id);
+    ProductResponse updateProduct(Integer id, Product user);
+    ProductResponse patchProduct(Integer id, Product user);
+    ProductResponse deleteProduct(Integer id);
 }
